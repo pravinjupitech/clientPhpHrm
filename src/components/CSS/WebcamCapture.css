@@ -1,0 +1,98 @@
+.webcam-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Adjust max-width as needed */
+  margin: 0 auto; /* Center container horizontally */
+}
+
+.webcam {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* Maintain aspect ratio (1:1) */
+}
+
+.webcam video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: 100%;
+  max-width: none;
+}
+
+.capture-area1 {
+    border: 1px solid black;
+  position: absolute;
+  top: 50%; /* Position in the center vertically */
+  left: 50%; /* Position in the center horizontally */
+  transform: translate(-50%, -50%);
+  width: 60%; /* Adjust size of capture area */
+  padding-top: 60%; /* Maintain a square aspect ratio (1:1) */
+  border-radius: 50%; /* Rounded shape for the capture area */
+  background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
+  cursor: pointer;
+  z-index: 1; /* Ensure capture area is above the blurred webcam */
+}
+.capture-area {
+  position: absolute;
+  top: 50%; /* Position in the center vertically */
+  left: 50%; /* Position in the center horizontally */
+  transform: translate(-50%, -50%);
+  width: 60%; /* Adjust size of capture area */
+  padding-top: 60%; /* Maintain a square aspect ratio (1:1) */
+  border-radius: 50%; /* Rounded shape for the capture area */
+  background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
+  cursor: pointer;
+  z-index: 1; /* Ensure capture area is above the blurred webcam */
+}
+
+.blur-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.blur-layer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(50% - 30%); /* Adjust width to control the size of the blurred corners */
+  height: calc(50% - 30%); /* Adjust height to control the size of the blurred corners */
+  background: rgba(0, 0, 255, 0.3); /* Semi-transparent blue background */
+  filter: blur(10px); /* Blur effect */
+  z-index: 1; /* Ensure it's above the webcam video */
+}
+
+.captured-image {
+  margin-top: 20px; /* Space between capture area and captured image */
+}
+
+.captured-image img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  border-radius: 50%; /* Rounded shape for the captured image */
+}
+.square {
+  position: relative;
+  width: 200px; /* Adjust width of the square */
+  height: 200px; /* Adjust height of the square */
+  background-color: #f0f0f0; /* Fill color of the square */
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px; /* Diameter of the circle */
+  height: 150px; /* Diameter of the circle */
+  border-radius: 50%; /* Makes the shape a circle */
+  border: 2px solid #000; /* Border color and thickness of the circle */
+  background-color: transparent; /* Transparent background for the circle */
+}
